@@ -104,9 +104,7 @@ class _HroneAttendanceState extends State<HroneAttendance> {
         body: SingleChildScrollView(
             child: Container(
                 alignment: Alignment.center,
-                height: MediaQuery
-                    .sizeOf(context)
-                    .height,
+
                 child: Column(
                   // mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -145,13 +143,14 @@ class _HroneAttendanceState extends State<HroneAttendance> {
                               child:InkWell(
                                 onTap: () async {
                                   image = await _picker.pickImage(
-                                      source: ImageSource.gallery);
+                                      source: ImageSource.camera);
                                   setState(() {});
                                 },
                                 child: image != null
                                     ? Image.file(
                                   File(image!.path),
                                   width: 100,
+                                  height:300,
                                   fit: BoxFit.cover,
                                 )
                                     : const Icon(Icons.image,
